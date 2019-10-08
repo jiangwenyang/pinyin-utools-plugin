@@ -6,7 +6,7 @@
   "homepage": "https://www.jiangwenyang.com",
   "main": "index.html",
   "preload": "preload.js",
-  "logo": "./assets/logo.png",
+  "logo": "./public/logo.png",
   "platform": ["win32", "darwin", "linux"],
   "pluginSetting": {
     "single": true,
@@ -24,7 +24,7 @@
           "match": "/[\u4e00-\u9fa5]/"
         }
       ],
-      "icon": "./assets/logo.png",
+      "icon": "./public/logo.png",
       "platform": ["win32", "darwin", "linux"]
     }
   ]

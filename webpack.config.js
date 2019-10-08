@@ -4,19 +4,19 @@ const FileManagerPlugin = require('filemanager-webpack-plugin');
 
 module.exports = {
   mode: 'development',
-  entry: path.join(__dirname, 'app', 'index'),
+  entry: path.join(__dirname, 'src', 'index'),
   watch: true,
   output: {
-    path: path.join(__dirname, 'dist'),
-    publicPath: path.join(__dirname, 'dist'),
-    filename: '[name].js',
+    path: path.join(__dirname, 'build'),
+    publicPath: path.join(__dirname, 'build'),
+    filename: 'bundle.js',
     chunkFilename: '[name].js'
   },
   module: {
     rules: [
       {
         test: /.tsx?$/,
-        include: [path.resolve(__dirname, 'app')],
+        include: [path.resolve(__dirname, 'src')],
         exclude: [path.resolve(__dirname, 'node_modules')],
         loader: 'babel-loader'
       }
@@ -29,18 +29,16 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       title: '汉字转拼音',
-      template: path.resolve(__dirname, 'public', 'index.html'),
-      excludeChunks: ['preload']
+      template: path.resolve(__dirname, 'public', 'index.html')
     }),
     new FileManagerPlugin({
+      onStart: {
+        delete: [path.resolve(__dirname, 'build')]
+      },
       onEnd: {
         copy: [
           {
-            source: path.resolve(__dirname, 'dist', 'index.html'),
-            destination: __dirname
-          },
-          {
-            source: path.resolve(__dirname, 'dist', 'preload.js'),
+            source: path.resolve(__dirname, 'build', 'index.html'),
             destination: __dirname
           }
         ]

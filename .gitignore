@@ -103,4 +103,6 @@ typings/
 bundle.js
 bundle.js.map
 
-dist/
+build/
+
+index.html
