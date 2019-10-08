@@ -103,3 +103,5 @@ public
 # webpack bundle file
 bundle.js
 bundle.js.map
+
+dist/

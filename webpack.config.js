@@ -4,16 +4,12 @@ const FileManagerPlugin = require('filemanager-webpack-plugin');
 
 module.exports = {
   mode: 'development',
-  entry: {
-    app: path.join(__dirname, 'app', 'index'),
-    preload: path.join(__dirname, 'app', 'preload')
-  },
+  entry: path.join(__dirname, 'app', 'index'),
   watch: true,
   output: {
     path: path.join(__dirname, 'dist'),
     publicPath: path.join(__dirname, 'dist'),
-    filename: chunkData =>
-      chunkData.chunk.name === 'preload' ? 'preload.js' : '[name].js',
+    filename: '[name].js',
     chunkFilename: '[name].js'
   },
   module: {
