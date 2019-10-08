@@ -5,11 +5,33 @@
   "main": "index.html",
   "dependencies": {
     "bulma": "^0.7.5",
-    "pinyin": "^2.9.0"
+    "pinyin": "^2.9.0",
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "@babel/core": "^7.6.2",
+    "@babel/preset-env": "^7.3.1",
+    "@babel/preset-react": "^7.0.0",
+    "@babel/preset-typescript": "^7.6.0",
+    "@types/react": "^16.9.5",
+    "@types/react-dom": "^16.9.1",
+    "babel-loader": "^8.0.6",
+    "babel-preset-env": "^1.7.0",
+    "copy-webpack-plugin": "^5.0.4",
+    "css-loader": "^3.2.0",
+    "filemanager-webpack-plugin": "^2.0.5",
+    "html-webpack-plugin": "^3.2.0",
+    "postcss-loader": "^3.0.0",
+    "source-map-loader": "^0.2.4",
+    "style-loader": "^1.0.0",
+    "typescript": "^3.6.3",
+    "webpack": "^4.29.0",
+    "webpack-cli": "^3.2.1",
+    "webpack-dev-server": "^3.1.14"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "webpack --config webpack.config.js"
   },
   "repository": {
     "type": "git",
