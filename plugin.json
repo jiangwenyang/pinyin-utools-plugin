@@ -1,0 +1,31 @@
+{
+  "pluginName": "汉字转拼音",
+  "version": "0.0.1",
+  "descripion": "汉字转拼音",
+  "author": "jiangwenyang",
+  "homepage": "https://www.jiangwenyang.com",
+  "main": "index.html",
+  "preload": "preload.js",
+  "logo": "./assets/logo.png",
+  "platform": ["win32", "darwin", "linux"],
+  "pluginSetting": {
+    "single": true,
+    "height": 200
+  },
+  "features": [
+    {
+      "code": "pinyin",
+      "explain": "汉字转拼音",
+      "cmds": [
+        "拼音",
+        {
+          "type": "regex",
+          "label": "汉字转拼音",
+          "match": "/[\u4e00-\u9fa5]/"
+        }
+      ],
+      "icon": "./assets/logo.png",
+      "platform": ["win32", "darwin", "linux"]
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "name": "pinyin-utools-plugin",
+  "version": "0.0.1",
+  "description": "\"uTools的汉字转拼音插件\"",
+  "main": "index.html",
+  "dependencies": {
+    "bulma": "^0.7.5"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jiangwenyang/utools-pinyin.git"
+  },
+  "keywords": [
+    "uTools",
+    "汉字转拼音"
+  ],
+  "author": "jiangwenyang",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jiangwenyang/utools-pinyin/issues"
+  },
+  "homepage": "https://github.com/jiangwenyang/utools-pinyin#readme"
+}
