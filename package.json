@@ -4,7 +4,8 @@
   "description": "\"uTools的汉字转拼音插件\"",
   "main": "index.html",
   "dependencies": {
-    "bulma": "^0.7.5"
+    "bulma": "^0.7.5",
+    "pinyin": "^2.9.0"
   },
   "devDependencies": {},
   "scripts": {
