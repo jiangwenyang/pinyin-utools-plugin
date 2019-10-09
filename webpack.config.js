@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const FileManagerPlugin = require('filemanager-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   mode: 'development',
@@ -15,10 +16,23 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /.tsx?$/,
+        test: /\.tsx?$/,
         include: [path.resolve(__dirname, 'src')],
         exclude: [path.resolve(__dirname, 'node_modules')],
         loader: 'babel-loader'
+      },
+      {
+        test: /\.css$/,
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              hmr: process.env.NODE_ENV === 'development'
+            }
+          },
+          { loader: 'css-loader', options: { importLoaders: 1 } },
+          'postcss-loader'
+        ]
       }
     ]
   },
@@ -43,6 +57,11 @@ module.exports = {
           }
         ]
       }
+    }),
+    new MiniCssExtractPlugin({
+      filename: '[name].css',
+      chunkFilename: '[id].css',
+      ignoreOrder: false
     })
   ]
 };
