@@ -2,6 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const FileManagerPlugin = require('filemanager-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const { WatchIgnorePlugin } = require('webpack');
 
 module.exports = {
   mode: 'development',
@@ -23,6 +24,7 @@ module.exports = {
       },
       {
         test: /\.css$/,
+        exclude: /node_modules/,
         use: [
           {
             loader: MiniCssExtractPlugin.loader,
@@ -30,14 +32,23 @@ module.exports = {
               hmr: process.env.NODE_ENV === 'development'
             }
           },
-          { loader: 'css-loader', options: { importLoaders: 1 } },
+          {
+            loader: 'typings-for-css-modules-loader',
+            options: {
+              modules: true,
+              namedExport: true,
+              camelCase: true,
+              minimize: true,
+              localIdentName: '[local]_[hash:base64:5]'
+            }
+          },
           'postcss-loader'
         ]
       }
     ]
   },
   resolve: {
-    extensions: ['.json', '.js', '.ts', '.jsx', '.tsx']
+    extensions: ['.js', '.ts', '.jsx', '.tsx', '.json', '.css']
   },
   devtool: 'source-map',
   plugins: [
@@ -62,6 +73,7 @@ module.exports = {
       filename: '[name].css',
       chunkFilename: '[id].css',
       ignoreOrder: false
-    })
+    }),
+    new WatchIgnorePlugin([/css\.d\.ts$/])
   ]
 };

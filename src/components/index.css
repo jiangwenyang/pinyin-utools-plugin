@@ -1,0 +1,10 @@
+.myButton {
+  --myWidth: 100px;
+  --myHeight: 20px;
+  width: var(--myWidth);
+  height: var(--myHeight);
+  color: 'red';
+  &:hover {
+    color: 'red';
+  }
+}
