@@ -1,3 +1,7 @@
-const pinyin = require('pinyin');
+const { clipboard } = require('electron');
 
-window.pinyin = pinyin;
+pinyin = require('pinyin');
+
+copy = text => {
+  clipboard.writeText(text);
+};
