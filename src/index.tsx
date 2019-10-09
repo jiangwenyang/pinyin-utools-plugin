@@ -1,10 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 
-import Button from './components/button';
+import TextArea from './components/TextArea';
+import { getValueFromEvent } from './utils/event';
 
 const App = () => {
-  return <Button />;
+  const [text, setText] = useState('');
+  const handleTextChange = e => {
+    setText(getValueFromEvent(e));
+  };
+
+  return (
+    <div>
+      <TextArea onChange={handleTextChange} value={text} />
+    </div>
+  );
 };
 
 ReactDOM.render(<App />, document.getElementById('app'));

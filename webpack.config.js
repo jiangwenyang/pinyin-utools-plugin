@@ -12,7 +12,7 @@ module.exports = {
     path: path.join(__dirname, 'build'),
     publicPath: path.join(__dirname, 'build'),
     filename: 'bundle.js',
-    chunkFilename: '[name].js'
+    chunkFilename: '[name].js',
   },
   module: {
     rules: [
@@ -20,17 +20,18 @@ module.exports = {
         test: /\.tsx?$/,
         include: [path.resolve(__dirname, 'src')],
         exclude: [path.resolve(__dirname, 'node_modules')],
-        loader: 'babel-loader'
+        loader: 'babel-loader',
       },
       {
         test: /\.css$/,
-        exclude: /node_modules/,
+        include: [path.resolve(__dirname, 'src')],
+        exclude: [path.resolve(__dirname, 'node_modules')],
         use: [
           {
             loader: MiniCssExtractPlugin.loader,
             options: {
-              hmr: process.env.NODE_ENV === 'development'
-            }
+              hmr: process.env.NODE_ENV === 'development',
+            },
           },
           {
             loader: 'typings-for-css-modules-loader',
@@ -39,41 +40,41 @@ module.exports = {
               namedExport: true,
               camelCase: true,
               minimize: true,
-              localIdentName: '[local]_[hash:base64:5]'
-            }
+              localIdentName: '[local]_[hash:base64:5]',
+            },
           },
-          'postcss-loader'
-        ]
-      }
-    ]
+          'postcss-loader',
+        ],
+      },
+    ],
   },
   resolve: {
-    extensions: ['.js', '.ts', '.jsx', '.tsx', '.json', '.css']
+    extensions: ['.js', '.ts', '.jsx', '.tsx', '.json', '.css'],
   },
   devtool: 'source-map',
   plugins: [
     new HtmlWebpackPlugin({
       title: '汉字转拼音',
-      template: path.resolve(__dirname, 'public', 'index.html')
+      template: path.resolve(__dirname, 'public', 'index.html'),
     }),
     new FileManagerPlugin({
       onStart: {
-        delete: [path.resolve(__dirname, 'build')]
+        delete: [path.resolve(__dirname, 'build')],
       },
       onEnd: {
         copy: [
           {
             source: path.resolve(__dirname, 'build', 'index.html'),
-            destination: __dirname
-          }
-        ]
-      }
+            destination: __dirname,
+          },
+        ],
+      },
     }),
     new MiniCssExtractPlugin({
       filename: '[name].css',
       chunkFilename: '[id].css',
-      ignoreOrder: false
+      ignoreOrder: false,
     }),
-    new WatchIgnorePlugin([/css\.d\.ts$/])
-  ]
+    new WatchIgnorePlugin([/css\.d\.ts$/]),
+  ],
 };
