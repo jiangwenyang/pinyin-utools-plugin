@@ -23,6 +23,11 @@ module.exports = {
         loader: 'babel-loader',
       },
       {
+        test: /\.js$/,
+        use: ['source-map-loader'],
+        enforce: 'pre',
+      },
+      {
         test: /\.css$/,
         include: [path.resolve(__dirname, 'src')],
         exclude: [path.resolve(__dirname, 'node_modules')],
