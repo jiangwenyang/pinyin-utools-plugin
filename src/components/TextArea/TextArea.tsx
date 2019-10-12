@@ -1,16 +1,27 @@
 import React from 'react';
+import classnames from 'classnames';
 
-const TextArea = ({ onChange, value }) => {
+interface TextAreaProps extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {}
+
+const TextArea = (props: TextAreaProps) => {
   const handleTextareaChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    const { onChange } = props;
     if (onChange) {
       onChange(e);
     }
   };
+
+  const getTextAreaClass = () => {
+    const { className } = props;
+    return classnames(className, 'textarea');
+  };
+
+  const { value } = props;
   return (
     <textarea
       value={value}
       onChange={handleTextareaChange}
-      className="textarea is-primary"
+      className={getTextAreaClass()}
       placeholder="请输入"
     />
   );

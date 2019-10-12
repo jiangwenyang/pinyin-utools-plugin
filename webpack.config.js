@@ -58,14 +58,19 @@ module.exports = {
       template: path.resolve(__dirname, 'public', 'index.html'),
     }),
     new FileManagerPlugin({
-      onStart: {
-        delete: [path.resolve(__dirname, 'build')],
-      },
       onEnd: {
         copy: [
           {
-            source: path.resolve(__dirname, 'build', 'index.html'),
-            destination: __dirname,
+            source: path.resolve(__dirname, 'plugin.json'),
+            destination: path.resolve(__dirname, 'build'),
+          },
+          {
+            source: path.resolve(__dirname, 'preload.js'),
+            destination: path.resolve(__dirname, 'build'),
+          },
+          {
+            source: path.resolve(__dirname, 'logo.png'),
+            destination: path.resolve(__dirname, 'build'),
           },
         ],
       },
