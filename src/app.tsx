@@ -32,7 +32,7 @@ const App = () => {
   }, []);
 
   const handleCopy = () => {
-    window.copy(pinyinText);
+    copy(pinyinText);
     utools.hideMainWindow();
   };
 
