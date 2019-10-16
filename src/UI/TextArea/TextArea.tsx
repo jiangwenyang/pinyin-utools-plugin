@@ -3,7 +3,7 @@ import classnames from 'classnames';
 
 interface TextAreaProps extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {}
 
-const TextArea = (props: TextAreaProps) => {
+const TextArea = React.forwardRef((props: TextAreaProps, ref: React.Ref<HTMLTextAreaElement>) => {
   const handleTextareaChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const { onChange } = props;
     if (onChange) {
@@ -16,15 +16,16 @@ const TextArea = (props: TextAreaProps) => {
     return classnames(className, 'textarea');
   };
 
-  const { value } = props;
+  const { value, placeholder } = props;
   return (
     <textarea
+      ref={ref}
       value={value}
       onChange={handleTextareaChange}
       className={getTextAreaClass()}
-      placeholder="请输入"
+      placeholder={placeholder}
     />
   );
-};
+});
 
 export default TextArea;

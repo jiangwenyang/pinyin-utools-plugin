@@ -55,6 +55,11 @@ module.exports = {
   },
   resolve: {
     extensions: ['.js', '.ts', '.jsx', '.tsx', '.json', '.css'],
+    alias: {
+      '@UI': path.resolve(__dirname, 'src', 'UI'),
+      '@components': path.resolve(__dirname, 'src', 'components'),
+      '@utils': path.resolve(__dirname, 'src', 'utils'),
+    },
   },
   devtool: 'source-map',
   plugins: [

@@ -10,7 +10,7 @@
   "platform": ["win32", "darwin", "linux"],
   "pluginSetting": {
     "single": true,
-    "height": 200
+    "height": 500
   },
   "features": [
     {
