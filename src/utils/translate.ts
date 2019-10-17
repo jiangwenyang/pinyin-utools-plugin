@@ -8,14 +8,16 @@ const baseTranslate = (hanzi: string, option: OptionType) => {
   return window.pinyin(hanzi, option);
 };
 
-const defaultFormater = (baseTranslateResult: string[][]) => baseTranslateResult.join(' ');
+const defaultFormater = (baseTranslateResult: string[][], hanzi: string) =>
+  baseTranslateResult.join(' ');
 
 const translateAndFormate = (
   hanzi: string,
   option: OptionType = {},
-  formater = defaultFormater,
+  formater?: typeof defaultFormater,
 ) => {
-  return formater(baseTranslate(hanzi, option));
+  const pinyinArr = baseTranslate(hanzi, option);
+  return formater ? formater(pinyinArr, hanzi) : pinyinArr;
 };
 
-export { OptionType, baseTranslate, translateAndFormate };
+export { OptionType, baseTranslate, translateAndFormate, defaultFormater };

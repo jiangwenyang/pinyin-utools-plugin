@@ -1,0 +1,16 @@
+.result {
+}
+
+.resultItem {
+  display: inline-block;
+  margin: 10px;
+  text-align: center;
+}
+
+.pinyin {
+  display: block;
+}
+
+.hanzi {
+  display: block;
+}

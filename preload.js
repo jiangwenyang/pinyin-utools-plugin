@@ -2,6 +2,10 @@ const { clipboard } = require('electron');
 
 pinyin = require('pinyin');
 
-copy = text => {
+copyText = text => {
   return clipboard.writeText(text);
+};
+
+copyHTML = htmlString => {
+  return clipboard.writeHTML(htmlString);
 };
