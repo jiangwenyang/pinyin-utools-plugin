@@ -1,4 +1,4 @@
-import Radio from './Radio';
+import Radio, { RadioType } from './Radio';
 import Group from './RadioGroup';
 
 Radio.Group = Group;

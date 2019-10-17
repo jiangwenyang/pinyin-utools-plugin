@@ -1,5 +1,6 @@
 import React from 'react';
 import { getValueFromEvent } from '../../utils/event';
+import { RadioProps } from './Radio';
 
 interface RadioGroupProps {
   name?: string;
@@ -8,7 +9,7 @@ interface RadioGroupProps {
   onChange?: (value: string) => void;
 }
 
-const RadioGroup = (props: RadioGroupProps) => {
+const RadioGroup: React.FC<RadioGroupProps> = props => {
   const { name, value, children } = props;
 
   const handleChange = e => {
@@ -18,7 +19,7 @@ const RadioGroup = (props: RadioGroupProps) => {
     }
   };
 
-  return React.Children.map(children, child => {
+  const radioGroup = React.Children.map(children, (child: React.ReactElement<RadioProps>) => {
     if (!React.isValidElement(child)) return child;
     return React.cloneElement(child, {
       name,
@@ -26,6 +27,8 @@ const RadioGroup = (props: RadioGroupProps) => {
       onChange: handleChange,
     });
   });
+
+  return <div>{radioGroup}</div>;
 };
 
 export default RadioGroup;

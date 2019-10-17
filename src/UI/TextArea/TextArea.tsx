@@ -3,7 +3,7 @@ import classnames from 'classnames';
 
 interface TextAreaProps extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {}
 
-const TextArea = React.forwardRef((props: TextAreaProps, ref: React.Ref<HTMLTextAreaElement>) => {
+const TextArea: React.RefForwardingComponent<HTMLTextAreaElement, TextAreaProps> = (props, ref) => {
   const handleTextareaChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const { onChange } = props;
     if (onChange) {
@@ -26,6 +26,6 @@ const TextArea = React.forwardRef((props: TextAreaProps, ref: React.Ref<HTMLText
       placeholder={placeholder}
     />
   );
-});
+};
 
-export default TextArea;
+export default React.forwardRef(TextArea);

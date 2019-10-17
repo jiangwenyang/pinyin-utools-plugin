@@ -1,19 +1,18 @@
 import React from 'react';
 import Group from './RadioGroup';
 
-interface RadioProps extends React.InputHTMLAttributes<HTMLInputElement> {
+export interface RadioProps extends React.InputHTMLAttributes<HTMLInputElement> {
   name?: any;
   value?: any;
   checked?: boolean;
   children?: React.ReactNode;
 }
 
-interface RadioType {
-  (props: RadioProps): React.ReactNode;
+export interface RadioType extends React.FC<RadioProps> {
   Group?: typeof Group;
 }
 
-const Radio: RadioType = (props: RadioProps) => {
+const Radio: RadioType = props => {
   const { children, value, checked } = props;
 
   const handleChange = e => {

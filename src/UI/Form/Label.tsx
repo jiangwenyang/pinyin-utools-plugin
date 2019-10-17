@@ -5,7 +5,7 @@ interface LabelProps extends React.LabelHTMLAttributes<HTMLLabelElement> {
   children?: React.ReactNode;
 }
 
-const Label = (props: LabelProps) => {
+const Label: React.FC<LabelProps> = props => {
   const getLabelClass = () => {
     const { className } = props;
     return classnames(className, 'label');

@@ -5,7 +5,7 @@ interface ControlProps extends React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode;
 }
 
-const Control = (props: ControlProps) => {
+const Control: React.FC<ControlProps> = props => {
   const getControlClass = () => {
     const { className } = props;
     return classnames(className, 'control');
