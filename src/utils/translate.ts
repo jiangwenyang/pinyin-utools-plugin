@@ -1,3 +1,5 @@
+import pinyin from 'pinyin';
+
 interface OptionType {
   segment?: boolean;
   heteronym?: boolean;
@@ -5,7 +7,7 @@ interface OptionType {
 }
 
 const baseTranslate = (hanzi: string, option: OptionType) => {
-  return window.pinyin(hanzi, option);
+  return pinyin(hanzi, option);
 };
 
 const defaultFormater = (baseTranslateResult: string[][], hanzi: string) =>

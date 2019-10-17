@@ -1,5 +1,6 @@
 import React from 'react';
 import { OptionType } from '../../utils/translate';
+import pinyin from 'pinyin';
 
 import Form from '../../UI/Form';
 import Radio from '../../UI/Radio';

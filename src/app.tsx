@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import pinyin from 'pinyin';
 
 import Config from './components/Config';
 import Result from './components/Result';
@@ -65,7 +66,8 @@ const App = () => {
         const pinyinText = pinyinResult
           ? pinyinResult.reduce((str, item) => {
               if (item.length > 1) {
-                return `${str} (${item.join(',')})`;
+                const [defultPinyin, ...otherTone] = item;
+                return `${str} ${defultPinyin}(${otherTone.join(',')})`;
               } else {
                 return `${str} ${item[0]}`;
               }
@@ -93,7 +95,7 @@ const App = () => {
   };
 
   return (
-    <div className="container" style={{ padding: '0 20px' }}>
+    <div className="container" style={{ padding: 20 }}>
       <div className="columns is-desktop is-centered">
         <div className="column is-full">
           <TextArea

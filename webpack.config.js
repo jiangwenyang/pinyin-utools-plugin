@@ -11,7 +11,7 @@ module.exports = {
   output: {
     path: path.join(__dirname, 'build'),
     publicPath: path.join(__dirname, 'build'),
-    filename: 'bundle.js',
+    filename: '[name].js',
     chunkFilename: '[name].js',
   },
   module: {
@@ -71,16 +71,8 @@ module.exports = {
       onEnd: {
         copy: [
           {
-            source: path.resolve(__dirname, 'plugin.json'),
-            destination: path.resolve(__dirname, 'build'),
-          },
-          {
-            source: path.resolve(__dirname, 'preload.js'),
-            destination: path.resolve(__dirname, 'build'),
-          },
-          {
-            source: path.resolve(__dirname, 'logo.png'),
-            destination: path.resolve(__dirname, 'build'),
+            source: path.resolve(__dirname, 'build'),
+            destination: path.resolve(__dirname, 'dist'),
           },
         ],
       },
