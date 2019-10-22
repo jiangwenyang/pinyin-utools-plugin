@@ -1,5 +1,7 @@
 const { clipboard } = require('electron');
 
+pinyin = require('pinyin');
+
 copyText = text => {
   return clipboard.writeText(text);
 };
