@@ -3,8 +3,10 @@
   "version": "0.0.1",
   "description": "\"uTools的汉字转拼音插件\"",
   "main": "index.html",
+  "scripts": {
+    "start": "webpack --config webpack.config.js"
+  },
   "dependencies": {
-    "nodejieba": "^2.3.2",
     "pinyin": "^2.9.0"
   },
   "repository": {
@@ -20,5 +22,10 @@
   "bugs": {
     "url": "https://github.com/jiangwenyang/utools-pinyin/issues"
   },
-  "homepage": "https://github.com/jiangwenyang/utools-pinyin#readme"
+  "homepage": "https://github.com/jiangwenyang/utools-pinyin#readme",
+  "devDependencies": {
+    "filemanager-webpack-plugin": "^2.0.5",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.9"
+  }
 }

@@ -1,0 +1,28 @@
+.wrapper {
+  padding: 20px;
+}
+
+.style-control .radio {
+  min-width: 180px;
+}
+
+.radio + .radio {
+  margin-left: 0;
+}
+
+.pinyin {
+  height: 100px;
+  overflow-y: auto;
+}
+
+.copy-btn::before {
+  content: '';
+  width: 16px;
+  height: 16px;
+  background: url('./copy.png') left center/16px no-repeat;
+  margin-right: 10px;
+}
+
+.copy-btn:not(:last-child) {
+  margin-right: 20px;
+}
