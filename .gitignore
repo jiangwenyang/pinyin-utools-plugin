@@ -96,11 +96,3 @@ jspm_packages/
 
 # TernJS port file
 .tern-port
-
-# webpack bundle file
-bundle.js
-bundle.js.map
-
-build/
-
-index.html
