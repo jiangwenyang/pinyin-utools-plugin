@@ -3,14 +3,14 @@
   "version": "0.0.1",
   "descripion": "汉字转拼音",
   "author": "jiangwenyang",
-  "homepage": "https://www.jiangwenyang.com",
+  "homepage": "https://github.com/jiangwenyang/pinyin-utools-plugin",
   "main": "index.html",
   "preload": "preload.js",
-  "logo": "./assets/logo.png",
+  "logo": "logo.png",
   "platform": ["win32", "darwin", "linux"],
   "pluginSetting": {
     "single": true,
-    "height": 200
+    "height": 440
   },
   "features": [
     {
@@ -24,7 +24,7 @@
           "match": "/[\u4e00-\u9fa5]/"
         }
       ],
-      "icon": "./assets/logo.png",
+      "icon": "logo.png",
       "platform": ["win32", "darwin", "linux"]
     }
   ]

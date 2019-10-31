@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="./assets/bulma.min.css" />
+    <link rel="stylesheet" href="./assets/index.css" />
+    <title>汉字转拼音</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="field">
+        <div class="field-label"></div>
+        <div class="field-body">
+          <div class="field">
+            <div class="control">
+              <textarea
+                id="hanziTextArea"
+                class="textarea is-primary has-fixed-size"
+                placeholder="请输入需要转换为拼音的汉字"
+              ></textarea>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- 分词模式由于nodejieba编译问题，暂时不开放 -->
+      <!-- <div class="field is-horizontal">
+        <div class="field-label">
+          <label class="label">分词模式：</label>
+        </div>
+        <div class="field-body">
+          <div class="field" id="segment">
+            <div class="control">
+              <label class="radio">
+                <input type="radio" name="segment" value="1" />
+                开启
+              </label>
+              <label class="radio">
+                <input type="radio" name="segment" value="0" checked />
+                关闭
+              </label>
+            </div>
+          </div>
+        </div>
+      </div> -->
+      <div class="field is-horizontal">
+        <div class="field-label">
+          <label class="label">多音字模式：</label>
+        </div>
+        <div class="field-body">
+          <div class="field" id="heteronym">
+            <div class="control">
+              <label class="radio">
+                <input type="radio" name="heteronym" value="1" />
+                开启
+              </label>
+              <label class="radio">
+                <input type="radio" name="heteronym" value="0" checked />
+                关闭
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="field is-horizontal">
+        <div class="field-label">
+          <label class="label">拼音样式：</label>
+        </div>
+        <div class="field-body">
+          <div class="field">
+            <div class="control style-control" id="style">
+              <label class="radio">
+                <input type="radio" name="style" value="1" checked />
+                pīn yīn (默认)
+              </label>
+              <label class="radio">
+                <input type="radio" name="style" value="2" />
+                pin yin (不带音调)
+              </label>
+              <label class="radio">
+                <input type="radio" name="style" value="3" />
+                pin1 yin1 (数字音调1)
+              </label>
+              <label class="radio">
+                <input type="radio" name="style" value="4" />
+                pi1n yi1n (数字音调2)
+              </label>
+              <label class="radio">
+                <input type="radio" name="style" value="5" />
+                p (声母)
+              </label>
+              <label class="radio">
+                <input type="radio" name="style" value="6" />
+                p y (首字母)
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="content is-medium pinyin" id="pinyin"></div>
+      <div style="text-align: center;">
+        <button class="button is-rounded is-primary copy-btn" id="copyPinyin">
+          只复制拼音(CTRL+C)
+        </button>
+        <button
+          class="button is-rounded is-primary copy-btn"
+          id="copyHanziAndPinyin"
+        >
+          复制汉字和拼音(CTRL+SHIFT+C)
+        </button>
+      </div>
+    </div>
+    <script src="./assets/jquery-3.4.1.min.js"></script>
+    <script src="./assets/pinyin.js"></script>
+    <script src="./assets/index.js"></script>
+  </body>
+</html>
